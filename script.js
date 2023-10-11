@@ -1,10 +1,10 @@
-const jokeEl = document.getElementById('joke');
-const jokeBtn = document.getElementById('joke-btn');
+const jokeEl = document.getElementById("joke");
+const jokeBtn = document.getElementById("joke-btn");
 
 const generateJoke = () => {
   const xhr = new XMLHttpRequest();
 
-  xhr.open('GET', 'https://api.chucknorris.io/jokes/random');
+  xhr.open("GET", "https://api.chucknorris.io/jokes/random");
 
   xhr.onreadystatechange = function () {
     if (this.readyState === 4) {
@@ -12,7 +12,7 @@ const generateJoke = () => {
         // console.log(JSON.parse(this.responseText).value);
         jokeEl.innerHTML = JSON.parse(this.responseText).value;
       } else {
-        jokeEl.innerHTML = 'Something Went Wrong (Not Funny)';
+        jokeEl.innerHTML = "Something Went Wrong (Not Funny)";
       }
     }
   };
@@ -20,5 +20,5 @@ const generateJoke = () => {
   xhr.send();
 };
 
-jokeBtn.addEventListener('click', generateJoke);
-document.addEventListener('DOMContentLoaded', generateJoke);
+jokeBtn.addEventListener("click", generateJoke);
+document.addEventListener("DOMContentLoaded", generateJoke);
